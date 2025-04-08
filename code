@@ -1,0 +1,44 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <climits>
+using namespace std;
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int N,M;
+    cin>>N>>M;
+    vector<int>A1(N);
+    for(int i=0;i<N;i++){
+        cin>>A1[i];
+    }
+    vector<int>A2(M);
+
+    for(int i=0;i<M;i++){
+        cin>>A2[i];
+    }
+    sort(A1.begin(),A1.end());
+    vector<int>result;
+    for(int i=0;i<M;i++){
+
+        for(int j=0;j<N;j++){
+
+            if(A1[j]==A2[i]){
+
+                result.push_back(A1[j]);
+                A1[j]=-1;
+            }
+        }
+    }
+    for(int i=0;i<N;i++){
+        if(A1[i]!=-1){
+            result.push_back(A1[i]);            
+        }  
+    }
+    for(long i=0;i<result.size();i++){
+        cout<<result[i]<<" ";
+    }
+    return 0;
+}
+Interview
